@@ -18,4 +18,4 @@ This software is developed by me for educational purposes.
  - Changing the speed of the generator, so you can see how the algorithms work.
 - DFS implementation for a version where a cell is or is not a wall
 
-![screenshot](https://imgur.com/a/uxiFuwW.png)
+![screenshot](https://i.imgur.com/TEkWsFg.png)
