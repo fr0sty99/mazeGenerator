@@ -30,9 +30,10 @@ public class MazeGenerator implements ActionListener, ChangeListener {
 	private Timer timer;
 	private CanvasUpdateTask canvasUpdateTask;
 
-	// GuiPanel
+	// GuiPanel // TODO: REFACTOR THESE SHITTY NAMES OMG
 	public int guiWidth = 300;
 	public JButton button2;
+	public JButton button3;
 	public JSlider slider;
 
 	// Mazes
@@ -70,12 +71,6 @@ public class MazeGenerator implements ActionListener, ChangeListener {
 	// -implement slider for timestep
 
 	MazeGenerator() {
-		// TODO: beautifying - somehow doesn't work!?
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		initFrame();
 	}
@@ -278,12 +273,19 @@ public class MazeGenerator implements ActionListener, ChangeListener {
 		c.gridx = 0;
 		c.gridy = 0;
 		guiPanel.add(button2, c);
-
+		
+		// add solve button
+		button3 = new JButton("solve the created maze");
+		button3.setSize(new Dimension(100, 20));
+		button3.addActionListener(this);
+		c.gridy = 1;
+		guiPanel.add(button3,  c);
+		
 		// add Slider for speed
-		slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
-		slider.addChangeListener(this);
-		c.gridx = 0;
-		c.gridy = 2;
+	//	slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
+		//slider.addChangeListener(this);
+	//	c.gridx = 0;
+	//	c.gridy = 2;
 		// not working by now, multithreading needed --> guiPanel.add(slider,
 		// c);
 
@@ -384,6 +386,11 @@ public class MazeGenerator implements ActionListener, ChangeListener {
 	public static void main(String[] args) {
 		MazeGenerator mg = new MazeGenerator();
 	}
+	
+	public void solveMaze() {
+		// Todo: solve maze
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -401,6 +408,8 @@ public class MazeGenerator implements ActionListener, ChangeListener {
 				}
 				dfsRunning = false;
 			}
+		} else if (e.getActionCommand() == button3.getActionCommand()) {
+			
 		}
 	}
 

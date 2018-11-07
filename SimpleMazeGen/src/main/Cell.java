@@ -66,6 +66,8 @@ public class Cell {
 		if (isCurrent()) {
 			g.setColor(Color.CYAN);
 		}
+		
+		// TODO: draw solution path
 
 		// draw cell
 		g.fillRect(x * cellSize, y * cellSize , cellSize, cellSize);
